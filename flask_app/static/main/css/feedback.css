@@ -1,0 +1,50 @@
+.feedback-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:40vw;
+    height: 22vh;
+    min-height: 260px;
+    background-color: #c0c0c0;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #fff;
+    border-top: 2px solid #fff;
+    box-shadow: inset -2px -2px #808080, inset 2px 2px #fff, 4px 4px #000;
+    padding: 15px;
+    z-index: 1000; /* Ensure it’s above everything */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.feedback-form-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.feedback-form-rows {
+    justify-content: space-between;
+}
+
+.feedback-form-rows input,
+.feedback-form-rows textarea {
+    width: 100%;
+    padding: 5px;
+    font-family: Tahoma;
+    background-color: #fff;
+    color: #000;
+    border: 2px inset #808080;
+    box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080;
+}
+
+.feedback-form-button-rows {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}

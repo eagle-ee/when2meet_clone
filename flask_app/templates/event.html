@@ -1,0 +1,89 @@
+{% extends 'shared/layout.html' %}
+{% block title %}{{ event.title }} - Lee Eagle{% endblock %}
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/events.css') }}">
+{% endblock %}
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='main/js/login.js') }}" defer></script>
+<script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+
+<!--pass data to js-->
+<script>
+  const eventData = {
+    id: {{ event.event_id }},
+    title: "{{ event.title }}",
+    startDate: "{{ event.start_date }}",
+    endDate: "{{ event.end_date }}",
+    startTime: "{{ event.start_time }}",
+    endTime: "{{ event.end_time }}"
+  };
+</script>
+
+<script src="{{ url_for('static', filename='main/js/event.js') }}" defer></script>
+{% endblock %}
+{% block maincontent %}
+<div class="window">
+    <div class="title-bar">
+        <span>{{ event.title }}</span>
+    </div>
+    <div class="window-body">
+      <div class="left-column">
+        <div class="event-info">
+          <h3>Event Details</h3>
+          <p><strong>Title:</strong> {{ event.title }}</p>
+          <p><strong>Date Range:</strong> {{ event.start_date }} to {{ event.end_date }}</p>
+          <p><strong>Time Range:</strong> {{ event.start_time }} to {{ event.end_time }}</p>
+          <p><strong>Created by:</strong> {{ event.creator_email }}</p>
+        </div>
+        
+        <div class="best-time-section">
+          <h3>Best Time to Meet</h3>
+          <div id="best-time-display">
+            <p>Calculating best time...</p>
+          </div>
+        </div>
+        
+        <div class="participant-list">
+          <h3>Participants</h3>
+          <ul id="participants">
+            <li>Loading participants...</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <div class="availability-controls">
+          <div class="mode-selector">
+            <label><input type="radio" name="availability-mode" value="available" checked> Available</label>
+            <label><input type="radio" name="availability-mode" value="maybe"> Maybe</label>
+            <label><input type="radio" name="availability-mode" value="unavailable"> Unavailable</label>
+          </div>
+          <div class="legend">
+            <div class="legend-item">
+              <span class="color-box available-light"></span> 1 Available
+            </div>
+            <div class="legend-item">
+              <span class="color-box available-medium"></span> 2 Available
+            </div>
+            <div class="legend-item">
+              <span class="color-box available-dark"></span> 3+ Available
+            </div>
+            <div class="legend-item">
+              <span class="color-box maybe"></span> Maybe
+            </div>
+            <div class="legend-item">
+              <span class="color-box unavailable"></span> Unavailable
+            </div>
+          </div>
+        </div>
+        
+        <div class="availability-grid">
+          <div id="loading-message">Loading availability grid...</div>
+          <!--grid made in js-->
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

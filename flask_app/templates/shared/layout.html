@@ -1,0 +1,68 @@
+<!-- FILL ME IN WITH CODE FOR YOUR PAGE LAYOUT -->
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{% block description %}Descriptio{% endblock %}">
+  <meta name ="author" content="Lee Eagle">
+
+  <title class="title-line">{% block title %}Lee Eagle{% endblock %}</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/win98.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main/css/footer.css') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='main/images/favicon.ico') }}">
+  {% block extracss %}{% endblock %}
+
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+      <span class="navbar-title">When3Meet</span>
+      <div class="navbar-buttons" id="navMenu">
+          <a href="{{ url_for('home') }}" class="navbar-button">Home</a>
+        </a>
+        {% if 'email' in session %}
+            <!--logged in-->
+            <div class="navbar-user">
+                <a href="{{ url_for('event_view')}}" class="navbar-button">View Events</a>
+                <a href="{{ url_for('event_new')}}" class="navbar-button">New Event</a>
+                <span class="user-email">{{ session['email'] }}</span>
+                <a href="{{ url_for('logout') }}" class="navbar-button">Logout</a>
+            </div>
+        {% else %}
+            <!--logged out-->
+            <a href="{{ url_for('login') }}" class="navbar-button">Login</a>
+        {% endif %}
+      </div>
+      <div class="menu-image" id="menuIcon">
+          <img src="{{ url_for('static', filename='main/images/menu-bar.png') }}" alt="Menu" loading="lazy">
+      </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+      {% block maincontent %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <span>&copy; 2025 Lee Eagle</span>
+  </footer>
+
+  <script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+  {% block extrajs %}{% endblock %}
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+

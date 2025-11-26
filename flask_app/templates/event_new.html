@@ -1,0 +1,61 @@
+{% extends 'shared/layout.html' %}
+{% block title %}Login - Lee Eagle{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{{ url_for('static', filename='main/css/events.css') }}">
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ url_for('static', filename='main/js/login.js') }}" defer></script>
+<script src="{{ url_for('static', filename='main/js/main.js') }}" defer></script>
+<script src="{{ url_for('static', filename='main/js/event_new.js') }}" defer></script>
+{% endblock %}
+
+{% block maincontent %}
+<div class="window">
+    <div class="title-bar">
+        <span>Create or Join New Event</span>
+    </div>
+    <div class="window-body">
+        <form id="createEventForm">
+            <div class="field-row">
+              <label for="eventName">Event Name:</label>
+              <input id="eventName" name="eventName" type="text" required>
+            </div>
+            
+            <div class="field-row">
+              <label for="startDate">Start Date:</label>
+              <input id="startDate" name="startDate" type="date" required>
+            </div>
+            
+            <div class="field-row">
+              <label for="endDate">End Date:</label>
+              <input id="endDate" name="endDate" type="date" required>
+            </div>
+            
+            <div class="field-row">
+              <label for="startTime">Start Time:</label>
+              <input id="startTime" name="startTime" type="time" required>
+            </div>
+            
+            <div class="field-row">
+              <label for="endTime">End Time:</label>
+              <input id="endTime" name="endTime" type="time" required>
+            </div>
+            
+            <div class="field-row">
+              <label for="invitees">Invitee Emails (comma-separated):</label>
+              <textarea id="invitees" name="invitees" rows="3" required></textarea>
+            </div>
+            
+            <div class="field-row">
+              <button type="submit">Create Event</button>
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+          </form>
+    </div>
+</div>
+
+{% endblock %}

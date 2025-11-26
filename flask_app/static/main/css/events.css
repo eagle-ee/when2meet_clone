@@ -1,0 +1,309 @@
+@import "win98.css";
+@import "navbar.css";
+
+.t{
+    text-align: center;
+    font-size: min(4vh, 24px);
+    margin-bottom: 1rem;
+}
+
+.t2{
+    text-align: center;
+    font-size: 2.5vh;
+    min-height: 10%;
+    min-width: 20%;
+    margin-bottom: 1rem;
+}
+
+#joinEventButton {
+    margin: 3vh;
+}
+
+.event-input {
+    width: 60%;
+    max-height: 7vh;
+    padding: .7rem;
+    font-family: Tahoma;
+    background-color: #fff;
+    color: #000;
+    border: 2px inset #808080;
+    box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080;
+}
+
+.event_create-column{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.event-join-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width:40vw;
+    height: 20vh;
+    min-height: 180px;
+    background-color: var(--boxColor);
+    border-right: 2px solid var(--borderBR);
+    border-bottom: 2px solid var(--borderBR);
+    border-left: 2px solid var(--borderTL);
+    border-top: 2px solid var(--borderTL);
+    box-shadow: inset -2px -2px #808080, inset 2px 2px var(--topInset), 4px 4px var(--botInset);
+    padding: 15px;
+    z-index: 1000; /* Ensure it’s above everything */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+
+.event-join-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.event-join-rows {
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.event-join-rows input,
+.event-join-rows textarea {
+    width: 80%;
+    font-family: Tahoma;
+    background-color: #fff;
+    color: #000;
+    border: 2px inset #808080;
+    box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080;
+}
+
+.event-join-button-rows {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.left-column {
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    max-height: 100%;
+    min-width: 250px;
+}
+  
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.event-table th {
+    background-color: #c0c0c0;
+    text-align: left;
+    padding: 8px;
+}
+
+.event-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-row {
+    cursor: pointer;
+}
+
+.event-row:hover {
+    background-color: #5a5a5a;
+}
+
+.error {
+    color: red;
+}
+
+.availability-grid {
+    margin: 20px 0;
+    overflow-x: auto;
+}
+  
+.availability-table {
+    border-collapse: collapse;
+    min-width: 100%;
+}
+
+.availability-table th, 
+.availability-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    min-width: 40px;
+    height: 30px;
+}
+
+.availability-table th {
+    background-color: var(--boxColor);
+    font-weight: bold;
+}
+
+.time-label {
+    text-align: right;
+    font-weight: bold;
+    background-color: var(--boxColor);
+    white-space: nowrap;
+}
+
+.availability-cell {
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.2s;
+}
+
+.availability-cell.available-light {
+    background-color: #c0ffba;
+}
+  
+.availability-cell.available-medium {
+    background-color: #7ce870;
+}
+  
+.availability-cell.available-dark {
+    background-color: #39c526;
+}
+  
+
+.availability-cell.maybe {
+    background-color: #ffee90;
+}
+
+.availability-cell.unavailable {
+    background-color: #f0f0f0;
+}
+
+.availability-cell:hover {
+    opacity: 0.8;
+}
+
+.availability-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+}
+
+.mode-selector {
+    display: flex;
+    gap: 15px;
+}
+
+
+.participant-list {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.participant-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.participant-list li {
+    padding: 4px 0;
+}
+
+.participant-list li.joined {
+    font-weight: bold;
+}
+
+.window-body {
+    padding: 10px;
+}
+
+.event-info {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.event-info p {
+    margin: 5px 0;
+}
+
+.error {
+    color: red;
+}
+
+.mode-selector label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+  
+.legend {
+    display: flex;
+    gap: 15px;
+}
+  
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9em;
+}
+  
+.color-box {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+}
+  
+.color-box.available-light {
+    background-color: #c0ffba;
+}
+  
+.color-box.available-medium {
+    background-color: #7ce870;
+}
+  
+.color-box.available-dark {
+    background-color: #39c526;
+}
+  
+.color-box.maybe {
+    background-color: #ffee90;
+}
+  
+.color-box.unavailable {
+    background-color: #f0f0f0;
+}
+  
+.best-time-section {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: var(--boxColor);
+    border: 1px solid var(--borderTL);
+    box-shadow: inset 1px 1px var(--topInset), inset -1px -1px var(--botInset);
+}
+  
+.best-time-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
